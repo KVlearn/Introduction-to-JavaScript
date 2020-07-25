@@ -99,7 +99,7 @@ function dogFeeder(dogWeight,dogAge){
 
 
 function games(userChoice){
-    let computerChoice=Math.floor(Math.random()*3); //returns 0 for rock, 1paper, 2scissors //
+    let computerChoice=Math.floor(Math.random()*3); //Generates 0 for rock, 1paper, 2scissors //
     console.log(computerChoice);
   if (((userChoice==='rock') && (computerChoice === 0))     ||
       ((userChoice==='paper') && (computerChoice === 1))    ||
@@ -194,24 +194,47 @@ function getGrade(marks){
 
 const vowels=['a','e','i','o','u'];
 
-function countVowels(yourText){
- // let stringLength=yourString.length -1;
- // for(i=0; i<stringLength; i++){
- //   if (stringLength[i].includes('a','e','i','o','u')){
- //     count=count+1;  
-    let vcount=0;  
-    for (let letter of yourText.toLowerCase()) {
-      if(vowels.includes(letter)){
-        vcount=vcount+1;
-      }
-  }
-  return vcount;
-}
-
 let userText = prompt('Enter your text to count vowels')
 
-console.log('Number of vowels in "' + userText + '" is ' + countVowels(userText));
+console.log('Number of vowels in "' + userText + '" is ' + vowelCounter(userText));
 
+function vowelCounter(text){
+/*convert input to lowercase to sync with vowels array*/
+  textc=text.toLowerCase();
+  console.log(textc);
+  let countV=0;
+  /* for(variable of iterable) Note for me! String is an iterable */
+  for(let value of textc){
+    /*For every iterable in a string, check if vowels array
+    includes that value - here that letter */
+    if(vowels.includes(value)){
+      countV++;
+    }
+  }
+  return countV;
+}
+
+/* Without using includes method 
+userText=prompt('Please enter your text');
+console.log(vowelCounter(userText));
+
+function vowelCounter(text){
+  textc=text.toLowerCase();
+  console.log(textc);
+  let vcount=0;
+  /*iterate for each letter in the string*/
+  //for(let eachletter of textc){
+    /* iterate for each vowel in the array */ 
+  //  for(i=0;i<vowels.length;i++){
+    /*compare each letter against each vowel */   
+  /*  if(eachletter === vowels[i]){
+      vcount++;
+    }
+    }
+  }
+  return vcount;
+} 
+]*/
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
