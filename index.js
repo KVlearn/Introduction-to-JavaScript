@@ -215,15 +215,18 @@ console.log('Number of vowels in "' + userText + '" is ' + countVowels(userText)
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
+ 
 let promptuser = prompt('Lets play- rock scissors paper, what do you choose');
-if(promptuser === "rock" || "scissors" || "paper"){
- console.log(games(promptuser));  
-}else{
+if(promptuser !== ("rock" || "scissors" || "paper")){
    alert("Please enter valid choice - rock or scissors or paper");
+  console.log("try again");
+}else{
+   console.log(games(promptuser)); 
 }
                   
 function games(userChoice){
     let computerChoice=Math.floor(Math.random()*3); //returns 0 for rock, 1paper, 2scissors //
+  let result='';
     console.log(computerChoice);
   if (((userChoice==='rock') && (computerChoice === 0))     ||
       ((userChoice==='paper') && (computerChoice === 1))    ||
@@ -240,8 +243,6 @@ function games(userChoice){
   }
   return result;
   }
-
-
 
 
 
